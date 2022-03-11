@@ -1,0 +1,51 @@
+{
+  "name": "online_store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "cross-env NODE_ENV=test  && tsc && db-migrate --env test up && tsc && jasmine && db-migrate down",
+    "prettier": "prettier --config .prettierrc.json  src/**/*.ts --write",
+    "lint": "eslint . --ext .ts --fix",
+    "jasmine": "jasmine",
+    "start": "nodemon ./dist/index.js",
+    "db-migrate": "db-migrate create initialize --sql-file",
+    "db-migrate:up": "db-migrate up",
+    "db-migrate:down": "db-migrate down",
+    "db-migrate:reset": "db-migrate reset"
+  },
+  "author": " Ali Sherif",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
+    "cross-env": "^7.0.3",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "@types/db-migrate-pg": "^0.0.10",
+    "@types/eslint": "^8.4.1",
+    "@types/express": "^4.17.13",
+    "@types/jasmine": "^3.10.3",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^17.0.21",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "eslint": "^8.9.0",
+    "jasmine": "^4.0.2",
+    "jasmine-spec-reporter": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "supertest": "^6.2.2",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  }
+}
